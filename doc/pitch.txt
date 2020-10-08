@@ -4,7 +4,6 @@ Idea 1: Instructional cooking video results based on ingredients searched in Foo
     -Search for YouTube video based on recipe results: https://www.programmableweb.com/api/youtube/developers 
 
 Idea 2: Translate Youtube Comments by using a translator API to auto scan for unknown languages to the user. Could be used to understand discussion of videos that themselves may be already translated, but the comments below were not.
-Database
   APIs:
     -Google Cloud translation: https://www.programmableweb.com/api/google-cloud-translation
     -Retrieve YouTube comments: https://developers.google.com/youtube/v3/docs/comments#resource
