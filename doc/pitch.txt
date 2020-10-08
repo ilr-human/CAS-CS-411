@@ -1,9 +1,15 @@
 Idea 1: Instructional cooking video results based on ingredients searched in Food & Recipe API. Users will also be able to filter out recipes that fit with their current ingredients at home, allergies, diet preferences, etc. 
-  APIs:
+  Database: to store user information
+  API (at least two)
     -Recipes based on ingredient search: https://www.programmableweb.com/api/food-rest-api-v10 
     -Search for YouTube video based on recipe results: https://www.programmableweb.com/api/youtube/developers 
+  OAuth: login/authenticate with Google
+  User benefits: retrieve instructional cooking videos based on ingredient search
 
 Idea 2: Translate Youtube Comments by using a translator API to auto scan for unknown languages to the user. Could be used to understand discussion of videos that themselves may be already translated, but the comments below were not.
-  APIs:
+  Database: to store user information
+  API (at least two)
     -Google Cloud translation: https://www.programmableweb.com/api/google-cloud-translation
-    -Retrieve YouTube comments: https://developers.google.com/youtube/v3/docs/comments#resource
+    -Retrieve YouTube comments: https://developers.google.com/youtube/v3/docs/comments#resource 
+  OAuth: login/authenticate with Google
+  User benefits: translate YouTube comments in foreign languages with ease
