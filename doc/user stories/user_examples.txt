@@ -1,0 +1,5 @@
+User examples:
+  -Casual Spotify user: wants a custom video for a song in their library so that it offers them a new form of entertainment from that song
+  -DJ (uses Spotify): wants to generate template background videos for their performances to save time on video editing
+  -Kanye West fan (doesn’t use Spotify): wants custom videos for songs released by Kanye West to share with the Kanye West community
+  -Content creator (doesn’t use Spotify): wants to create a music video for a specific song so that they can share the video online
