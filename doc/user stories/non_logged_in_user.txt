@@ -1,0 +1,3 @@
+Non-logged in user:
+  -Refer to Song selection stories b-d
+  -Refer to Logged-in user stories c-f
