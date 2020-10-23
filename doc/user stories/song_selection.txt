@@ -6,3 +6,5 @@ Song selection:
     -From search results (songs released by searched artist name), select desired song
   -Search for album name on app’s search bar
     -From search results (songs in searched album name), select desired song
+  -Song not found
+    -App returns message to user indicating song was not found, user can either search for a different song or exit the app
