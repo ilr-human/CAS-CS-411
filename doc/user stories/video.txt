@@ -1,0 +1,6 @@
+Video:
+  -User edits video (examples)
+    -Remove certain images
+    -Option to add lyrics
+  -User downloads video file
+  -User shares link to video
