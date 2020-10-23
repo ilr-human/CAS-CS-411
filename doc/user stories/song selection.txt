@@ -1,0 +1,8 @@
+Song selection:
+  -Select song from user library (if user is logged into app with Spotify)
+  -Search for song title on app’s search bar
+    -From search results (songs matching searched song title), select desired song
+  -Search for artist name on app’s search bar
+    -From search results (songs released by searched artist name), select desired song
+  -Search for album name on app’s search bar
+    -From search results (songs in searched album name), select desired song
