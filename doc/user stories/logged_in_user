@@ -1,0 +1,11 @@
+Logged-in user: wants to use a song from their library
+  -Refer to Login story
+  -Refer to Song selection story a
+  -Will download unedited video file
+    -Refer to Video story b
+  -Will download edited video file
+    -Refer to Video stories a -> b
+  -Will share unedited video file
+    -Refer to Video story c
+  -Will share edited video file
+    -Refer to Video story a -> c
