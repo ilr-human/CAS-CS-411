@@ -4,4 +4,4 @@ Quan Pham, Chloe Pupaiboon, Benjamin Reichelt, Isabella Rocha, Gabriella Roman, 
 
 To start the app: npm start 
 
-The app is run on: http://localhost:3000/
+The app is hosted on: http://localhost:3000/
