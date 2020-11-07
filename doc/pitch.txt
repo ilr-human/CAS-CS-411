@@ -1,8 +1,8 @@
 Idea 1: Instructional cooking video results based on ingredients searched in Food & Recipe API. Users will also be able to filter out recipes that fit with their current ingredients at home, allergies, diet preferences, etc. 
   Database: to store user information
   API (at least two)
-    -Recipes based on ingredient search: https://www.programmableweb.com/api/food-rest-api-v10 
-    -Search for YouTube video based on recipe results: https://www.programmableweb.com/api/youtube/developers 
+    -Recipes based on ingredient search: https://www.programmableweb.com/api/food-rest-api-v10
+    -Search for YouTube video based on recipe results: https://www.programmableweb.com/api/youtube/developers
   OAuth: login/authenticate with Google
   User benefits: retrieve instructional cooking videos based on ingredient search
 

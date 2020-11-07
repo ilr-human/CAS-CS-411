@@ -13,9 +13,29 @@
       <h1 class="h3 mb-3 font-weight-normal">Search GIF</h1>
       <label for="keyword" class="sr-only">Keyword</label>
       <input type="text" name="keyword" class="form-control" placeholder="Enter a keyword" required autofocus>
-      <label for="limit" class="sr-only">Email</label>
-      <input type="text" name="limit" class="form-control" placeholder="Max number of GIFs to return" required>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Search</button>
+      <button class="btn btn-lg btn-primary btn-block" id="btnSearch" type="submit">Search</button>
     </form>
+<!--    <script type="module">-->
+<!--      import giphyConfig from "../configs/giphyAPI"-->
+<!--      document.addEventListener("DOMContentLoaded", init);-->
+<!--      function init(){-->
+<!--        document.getElementById("btnSearch").addEventListener("click", ev => {-->
+<!--          ev.preventDefault(); // stop page reload-->
+<!--          const api_key = giphyConfig.key-->
+<!--          const keyword = document.getElementById("keyword").value.trim()-->
+<!--          const api_url = `http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=${api_key}&limit=1`;-->
+<!--          console.log(api_url)-->
+<!--          fetch(api_url)-->
+<!--            .then(response => response.json())-->
+<!--            .then(content => {-->
+<!--              console.log(content.data);-->
+<!--              console.log('META', content.data);-->
+<!--            })-->
+<!--            .catch(err => {-->
+<!--              console.error(err);-->
+<!--            });-->
+<!--        });-->
+<!--      }-->
+<!--    </script>-->
   </body>
 </html>
