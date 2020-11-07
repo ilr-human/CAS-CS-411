@@ -9,6 +9,7 @@
     <body>
         <h1><%= title %></h1>
         <p><%= keyword %></p>
+        <div class="out"></div>
         <script type="module">
             const api_key = "<%= key %>"
             const key_word = "<%= keyword %>"
@@ -19,12 +20,22 @@
                 .then(content => {
                     console.log(content.data);
                     console.log('META', content.data);
+                    let fig = document.createElement("figure");
+                    let img = document.createElement("img");
+                    let fc = document.createElement("figcaption");
+                    img.src = content.data[0].images.downsized.url;
+                    img.alt = content.data[0].title;
+                    fc.textContent = content.data[0].title;
+                    fig.appendChild(img);
+                    fig.appendChild(fc);
+                    let out = document.querySelector(".out");
+                    out.insertAdjacentElement("afterbegin", fig);
+                    document.querySelector("#search").value = "";
                 })
                 .catch(err => {
                     console.error(err);
                 });
 
         </script>
-
     </body>
 </html>
