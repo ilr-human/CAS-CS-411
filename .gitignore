@@ -6,6 +6,11 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+
+#adding in so that we ignore the config API keys
+configs/
+
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
