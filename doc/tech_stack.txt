@@ -1,1 +1,7 @@
-For our project's current state, we contemplated between the Node.js and Django frameworks, and ultimately decided on Node.js. We looked at these in particular because both are popular options among developers for being extremely versatile. The main difference between the two is that Django is Python-based with a heavy focus on rapid development, while Node.js is JavaScript-based (and C, C++) and utilizes a distinct programming language for web-application development instead of two different languages for server-side and client-side scripts. When comparing the two, we found that Django has a steeper learning curve and is more complicated when solving problems than Node.js. Node.js also has a very active community, and a lot of flexibility with the JavaScript library. For these reasons, we have settled on developing with Node.js for the time being.
+For our project's current state, we contemplated between the Node.js and Django frameworks, and ultimately decided on Node.js. 
+We looked at these in particular because both are popular options among developers for being extremely versatile. 
+The main difference between the two is that Django is Python-based with a heavy focus on rapid development, while Node.js is JavaScript-based (and C, C++) 
+and utilizes a distinct programming language for web-application development instead of two different languages for server-side and client-side scripts. 
+When comparing the two, we found that Django has a steeper learning curve and is more complicated when solving problems than Node.js. 
+Node.js also has a very active community, and a lot of flexibility with the JavaScript library. 
+For these reasons, we have settled on developing with Node.js for the time being.
