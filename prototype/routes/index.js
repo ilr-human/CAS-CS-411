@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var giphyConfig = require('../configs/giphyAPI')
+const express = require('express');
+const router = express.Router();
+const giphyConfig = require('../configs/giphyAPI')
 const api_key = giphyConfig.key
 
 /* GET home page. */
