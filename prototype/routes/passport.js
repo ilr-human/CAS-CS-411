@@ -5,22 +5,30 @@ const passport = require('passport')
 const SpotifyStrategy = require('passport-spotify').Strategy;
 const spotifyConfig = require('../configs/spotifyAPI');
 
+// code from https://codeburst.io/authenticate-your-app-with-spotify-oauth-25744e906ade
+passport.serializeUser(function(user, done) {
+    done(null, user);
+});
+passport.deserializeUser(function(user, done) {
+    done(null, user);
+});
+
+
 passport.use(
     new SpotifyStrategy(
         {
             clientID: spotifyConfig.clientID,
             clientSecret: spotifyConfig.clientSecret,
-            callbackURL: 'http://localhost:8888/auth/spotify/callback'
+            callbackURL: 'http://localhost:3000/auth/spotify/callback'
         },
         function(accessToken, refreshToken, expires_in, profile, done) {
-            User.findOrCreate({ spotifyId: profile.id }, function(err, user) {
-                return done(err, user);
-            });
+                return done(null, profile);
+
         }
     )
 );
 
-app.get('./oauthSpotify', passport.authenticate('spotify'), function(req, res) {
+app.get('./auth', passport.authenticate('spotify'), function(req, res) {
     // The request will be redirected to spotify for authentication, so this
     // function will not be called.
 });

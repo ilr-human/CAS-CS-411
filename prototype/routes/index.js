@@ -2,6 +2,33 @@ const express = require('express');
 const router = express.Router();
 const giphyConfig = require('../configs/giphyAPI')
 const api_key = giphyConfig.key
+// const cookieSession = require('cookie-session')
+// const passport = require('passport');
+// const app = require("../app");
+// const auth = require('./passport')
+
+
+//code in progress from https://codeburst.io/authenticate-your-app-with-spotify-oauth-25744e906ade
+// app.use(cookieSession({
+//   name: 'spotify-auth-session',
+//   keys: ['key1', 'key2']
+// }))
+// app.use(passport.initialize());
+// app.use(passport.session());
+//
+//
+// app.get('/auth/error', (req, res) => res.send('Unknown Error'))
+//
+// app.get('/auth/spotify',passport.authenticate('spotify'));
+//
+// app.get('/auth/spotify/callback',passport.authenticate('spotify', { failureRedirect: '/auth/error' }),
+//     function(req, res) {
+//       res.redirect('/');
+//     });
+//
+// app.listen(3000,()=>{
+//   console.log('Serve is up and running at the port 8000')
+// })
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -14,4 +41,5 @@ router.post('/searchGIF', function(req, res, next){
   // const api_url = `http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=${api_key}&limit=1`;
   res.render('result', { title: 'Search Result', key: api_key, keyword: keyword });
 });
+
 module.exports = router;
