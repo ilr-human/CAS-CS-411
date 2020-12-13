@@ -9,32 +9,39 @@
     <body>
         <h1><%= title %></h1>
         <p><%= keyword %></p>
-        <div class="out"></div>
-        <script type="module">
-            const api_key = "<%= key %>"
-            const key_word = "<%= keyword %>"
-            const api_url = `http://api.giphy.com/v1/gifs/search?q=${key_word}&api_key=${api_key}&limit=1`;
-            console.log(api_url)
-            fetch(api_url)
-                .then(response => response.json())
-                .then(content => {
-                    console.log(content.data);
-                    console.log('META', content.data);
-                    let fig = document.createElement("figure");
-                    let img = document.createElement("img");
-                    let fc = document.createElement("figcaption");
-                    img.src = content.data[0].images.downsized.url;
-                    img.alt = content.data[0].title;
-                    fc.textContent = content.data[0].title;
-                    fig.appendChild(img);
-                    fig.appendChild(fc);
-                    let out = document.querySelector(".out");
-                    out.insertAdjacentElement("afterbegin", fig);
-                })
-                .catch(err => {
-                    console.error(err);
-                });
-
-        </script>
+        <% data.forEach(item => {%>
+            <figure>
+                <img src=<%= item.images.downsized.url %> alt=<%= item.title %>>
+                <figcaption><%= item.title %></figcaption>
+            </figure>
+        <%});%>
+<!--        <div class="out"></div>-->
+        <button class="btn btn-lg btn-primary btn-block" onclick="history.back()">Back</button>
+<!--        <script type="module">-->
+<!--            const api_key = "< %= key % >"-->
+<!--            const key_word = "< %= keyword % >"-->
+<!--            const api_url = `http://api.giphy.com/v1/gifs/search?q=${key_word}&api_key=${api_key}&limit=10`;-->
+<!--            console.log(api_url)-->
+<!--            fetch(api_url)-->
+<!--                .then(response => response.json())-->
+<!--                .then(content => {-->
+<!--                    console.log(content.data);-->
+<!--                    for(let i = 0; i < content.data.length; i++){-->
+<!--                        let fig = document.createElement("figure");-->
+<!--                        let img = document.createElement("img");-->
+<!--                        let fc = document.createElement("figcaption");-->
+<!--                        img.src = content.data[i].images.downsized.url;-->
+<!--                        img.alt = content.data[i].title;-->
+<!--                        fc.textContent = content.data[i].title;-->
+<!--                        fig.appendChild(img);-->
+<!--                        fig.appendChild(fc);-->
+<!--                        let out = document.querySelector(".out");-->
+<!--                        out.insertAdjacentElement("afterbegin", fig);-->
+<!--                    }-->
+<!--                })-->
+<!--                .catch(err => {-->
+<!--                    console.error(err);-->
+<!--                });-->
+<!--        </script>-->
     </body>
 </html>
