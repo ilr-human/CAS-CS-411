@@ -4,9 +4,9 @@ const giphyConfig = require('../configs/giphyAPI')
 const api_key = giphyConfig.key
 const fetch = require('node-fetch')
 // const cookieSession = require('cookie-session')
-// const passport = require('passport');
-// const app = require("../app");
-// const auth = require('./passport')
+const passport = require('passport');
+const app = require("../app");
+const auth = require('./passport')
 
 
 //code in progress from https://codeburst.io/authenticate-your-app-with-spotify-oauth-25744e906ade
@@ -14,10 +14,12 @@ const fetch = require('node-fetch')
 //   name: 'spotify-auth-session',
 //   keys: ['key1', 'key2']
 // }))
-// app.use(passport.initialize());
+
+// app.use(passport.initialize()); // getting weird errors on this
 // app.use(passport.session());
 //
 //
+// THESE FUNCTIONS ARE CAUSING ERRORS:
 // app.get('/auth/error', (req, res) => res.send('Unknown Error'))
 //
 // app.get('/auth/spotify',passport.authenticate('spotify'));
