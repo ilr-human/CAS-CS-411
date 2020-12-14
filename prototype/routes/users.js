@@ -59,7 +59,4 @@ router.post('/:id', function(req, res, next){
       .catch(err => res.status(400).json('Error: ' + err));
 });
 
-// remove a gif from an user's saved gifs
-// router.delete
-
 module.exports = router;
