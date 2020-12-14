@@ -41,4 +41,18 @@ router.post('/:id', function(req, res, next){
       .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.post('/add', function(req,res,next){
+    const userID = req.body.userID
+    const username = req.body.username
+    const gifs = req.body.gifs
+    const newUser = new User({
+        userID,
+        username,
+        gifs
+    });
+    newUser.save()
+        .then(user => res.json(user))
+        .catch(err => res.status(400).json("Error: " + err));
+});
+
 module.exports = router;

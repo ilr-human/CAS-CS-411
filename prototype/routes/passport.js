@@ -24,9 +24,23 @@ passport.use(
             callbackURL: 'http://localhost:3000/auth/spotify/callback'
         },
         function(accessToken, refreshToken, expires_in, profile, done) {
-            // DB implementation steps should go here: find/create user
-                return done(null, profile);
-
+            User.findOne({userID: profile.id})
+                .then(user => console.log(user))
+                .catch(err => {
+                    const userID = profile.id;
+                    const username = profile.name;
+                    const gifs = [];
+                    const newUser = new User({
+                        userID,
+                        username,
+                        gifs
+                    });
+                    newUser.save()
+  //                      .catch(err => res.status(400).json("Error :" + err));
+                    return done(null, profile);
+                    }
+                )
+            return done(null, profile);
         }
     )
 );
@@ -35,7 +49,7 @@ passport.use(
 //     // The request will be redirected to spotify for authentication, so this
 //     // function will not be called.
 // });
-
+// //
 // app.get(
 //     '/auth/spotify/callback',
 //     passport.authenticate('spotify', { failureRedirect: '/login' }),
