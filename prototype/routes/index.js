@@ -56,19 +56,19 @@ router.get('/', function(req, res, next) {
 });
 
 /* Send a POST request to Giphy API for GIFs */
-router.post('/add', function(req,res,next){
-    const userID = req.body.userID;
-    const username = req.body.username;
-    const url = req.body.url;
-    const title = req.body.title;
-    const newUser = new User({
-        userID: userID,
-        username: username,
-        gifs: [{url: url, title: title}]
-    });
-    newUser.save()
-        .then(() => res.json("Success"))
-        .catch(err => res.status(400).json("Error: " + err));
+router.post('/searchGIF', function(req, res, next){
+    const { keyword } = req.body;
+    const api_url = `http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=${api_key}&limit=10`;
+    fetch(api_url)
+        .then(response => response.json())
+        .then(content => {
+            console.log(content.data);
+            res.render('result', { title: 'Search Result', keyword: keyword, data: content.data});
+        })
+        .catch(err => {
+            console.error(err);
+        });
+    //res.render('result', { title: 'Search Result', key: api_key, keyword: keyword });
 });
 
 module.exports = router;
