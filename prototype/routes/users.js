@@ -22,6 +22,21 @@ newUser.save()
 .catch(err => res.status(400).json("Error :" + err));
  */
 
+router.post('/add', function(req,res,next){
+    const userID = req.body.userID;
+    const username = req.body.username;
+    const url = req.body.url;
+    const title = req.body.title;
+    const newUser = new User({
+        userID: userID,
+        username: username,
+        gifs: [{url: url, title: title}]
+    });
+    newUser.save()
+        .then(() => res.json("Success"))
+        .catch(err => res.status(400).json("Error: " + err));
+});
+
 // get a certain user from db
 router.get('/:id', function(req, res, next){
   User.findOne({userID:req.params.id})
@@ -29,30 +44,19 @@ router.get('/:id', function(req, res, next){
       .catch(err => res.status(400).json('Error: ' + err));
 });
 
-// update an user
+// add a gif to an user's saved gifs
 router.post('/:id', function(req, res, next){
   User.findOne({userID:req.params.id})
       .then(user => {
         // update fields here (using push to add to array)
+        /*
+        user.gifs.push({ url: , title: })
+         */
         user.save()
             .then(() => res.json("Updated!"))
             .catch(err => res.status(400).json('Error: ' + err));
       })
       .catch(err => res.status(400).json('Error: ' + err));
-});
-
-router.post('/add', function(req,res,next){
-    const userID = req.body.userID
-    const username = req.body.username
-    const gifs = req.body.gifs
-    const newUser = new User({
-        userID,
-        username,
-        gifs
-    });
-    newUser.save()
-        .then(user => res.json(user))
-        .catch(err => res.status(400).json("Error: " + err));
 });
 
 module.exports = router;
