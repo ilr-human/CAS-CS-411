@@ -41,7 +41,7 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('passport', passportRouter);
+app.use('/passport', passportRouter);
 
 passport.serializeUser(function(user, done) {
   done(null, user);
