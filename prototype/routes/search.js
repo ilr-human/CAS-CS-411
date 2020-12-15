@@ -52,11 +52,11 @@ app.use(passport.session());
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'GIF Finder'});
+    res.render('index', { title: 'GIF Finder', user: req.user});
 });
 
 /* Send a POST request to Giphy API for GIFs */
-router.post('/searchGIF', function(req, res, next){
+router.post('/result', function(req, res, next){
     const { keyword } = req.body;
     const api_url = `http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=${api_key}&limit=10`;
     fetch(api_url)

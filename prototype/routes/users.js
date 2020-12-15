@@ -21,7 +21,7 @@ const newUser = new User({
 newUser.save()
 .catch(err => res.status(400).json("Error :" + err));
  */
-
+// test adding new user to DB
 router.post('/add', function(req,res,next){
     const userID = req.body.userID;
     const username = req.body.username;
