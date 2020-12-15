@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <h1>Spotify GIF Finder - CS411 Team 8</h1>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+      <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-  <body>
-      <h2>Please log in.</h2>
-      <button class="btn btn-primary" id="login" type="submit"
-              onclick="location.href='http://localhost:3000/auth'">Login</button>
-    </form>
+  <body id="index-body">
+    <div class="login-container">
+        <h1 id="index-h1">Spotify GIF Generator</h1>
+        <h2 id="index-h2">CS411 - Team 8</h2>
+        <div class="login-box">
+            <h2>Login with <span style="color:green; font-weight:bold; font-family: AppleGothic;">Spotify</span></h2>
+            <div class="container" style="text-align:center">
+                <button class="btn-success" id="login" type="submit" style="width:100px;height:40px"
+                      onclick="location.href='http://localhost:3000/auth'">Login</button>
+            </div>
+        </div>
+    </div>
+
   </body>
 </html>
