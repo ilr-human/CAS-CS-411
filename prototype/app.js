@@ -11,7 +11,8 @@ const User = require('./models/userModel');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const passportRouter = require('./routes/passport');
+const SearchRouter = require('./routes/Search')
+const loginfailRouter = require('./routes/loginfail');
 
 const app = express();
 
@@ -41,7 +42,8 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/passport', passportRouter);
+app.use('/search', SearchRouter);
+app.use('/loginfail', loginfailRouter)
 
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -87,10 +89,10 @@ app.get('/auth', passport.authenticate('spotify'), function(req, res) {
 //
 app.get(
     '/auth/spotify/callback',
-    passport.authenticate('spotify', { failureRedirect: '/login' }),
+    passport.authenticate('spotify', { failureRedirect: '/loginfail' }),
     function(req, res) {
         // Successful authentication, redirect home.
-        res.redirect('/');
+        res.redirect('/search');
     }
 );
 // catch 404 and forward to error handler
