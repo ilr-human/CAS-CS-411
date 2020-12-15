@@ -80,7 +80,7 @@ passport.use(
     )
 );
 
-app.get('./auth', passport.authenticate('spotify'), function(req, res) {
+app.get('/auth', passport.authenticate('spotify'), function(req, res) {
     // The request will be redirected to spotify for authentication, so this
     // function will not be called.
 });
