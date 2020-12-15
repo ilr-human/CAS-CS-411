@@ -99,7 +99,7 @@ app.get("/", function (req, res) {
 });
 
 app.get("/account", ensureAuthenticated, function (req, res) {
-    res.render("account", { user: req.user });
+    res.render("account", { title: 'Spotify GIF Generator', user: req.user });
 });
 
 app.get("/logout", function (req, res) {

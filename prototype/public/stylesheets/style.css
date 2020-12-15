@@ -7,8 +7,12 @@
 /*  color: #00B7FF;*/
 /*}*/
 
-html,
+html {
+  margin: 0;
+  height: 100%;
+}
 body {
+  margin: 0;
   height: 100%;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -23,7 +27,22 @@ body {
 #index-h2{
   color: ivory; text-align:left; mix-blend-mode:difference; font-family: 'Apple SD Gothic Neo'
 }
+.image-cropper {
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+img {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
 #index-body{
+  margin: 0;
   height: 100%;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -31,11 +50,29 @@ body {
   background-position: center;
   background-size: cover;
 }
+#search-body{
+  margin: 0;
+  height: 100%;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url('https://media.giphy.com/media/3oriNYvVkCgIhSIKic/giphy.gif');
+  background-position: center;
+  background-size: cover;
+}
+#account-body{
+  margin: 0;
+  height: 100%;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url('https://media.giphy.com/media/fqtxCwUd2t6dCzILMq/giphy.gif');
+  background-position: center;
+  background-size: cover;
+}
 .login-box {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 350px;
+  width: 360px;
   padding: 40px;
   transform: translate(-50%, -50%);
   background: rgba(255,255,255,0.95);
@@ -53,6 +90,21 @@ body {
 }
 .login-box button {
   position: center;
+}
+.profile {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.95);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+#a-brand {
+  font-size:30px; font-family:'Apple SD Gothic Neo'; font-weight:bold; color:ivory;
 }
 .full-width {
   width: 100%;

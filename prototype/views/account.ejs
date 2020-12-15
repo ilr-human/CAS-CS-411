@@ -1,4 +1,46 @@
-<p>ID: <%= user.id %></p>
-<p>Profile:
-    <a href="<%= user.profileUrl %>"><%= user.profileUrl %></a>
-</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <a class="navbar-brand" href="/" id="a-brand"><%= title %></a>
+    <ul class="navbar-nav mr-auto">
+        <!--    <li class="nav-item">-->
+        <!--      <a class="nav-link" href="/">Home</a>-->
+        <!--    </li>-->
+        <!--    <li class="nav-item">-->
+        <!--      <a class="nav-link" href="/about">About</a>-->
+        <!--    </li>-->
+    </ul>
+    <a class="nav-link" href="/account" style="font-size:15px; color:ivory">
+        @<%= user.username %>
+    </a>
+    <a class="nav-link" href="/logout" style="font-size:15px; color:ivory">
+        Logout
+    </a>
+</nav>
+<body id="account-body">
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="card profile">
+            <div class="card-body">
+                <div class="card-title">
+                    <div class="image-cropper">
+                        <img width="150" src="<%= user.photos[0] %>" alt="Avatar"/>
+                    </div>
+                </div>
+                <br>
+                <div class="card-text">
+                    <p>ID: <%= user.id %></p>
+                    <p>Name: <%= user.displayName %></p>
+                    <p>Profile:
+                        <a href="<%= user.profileUrl %>"><%= user.profileUrl %></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
