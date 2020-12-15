@@ -6,7 +6,13 @@ const fetch = require('node-fetch')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'GIF Finder', user: req.user});
+    user = req.user
+    if(user){
+        res.render('index', { title: 'Spotify GIF Generator', user: req.user});
+    }
+    else{
+        res.redirect('/');
+    }
 });
 
 /* Send a POST request to Giphy API for GIFs */
