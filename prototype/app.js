@@ -8,10 +8,11 @@ const passport = require('passport');
 const SpotifyStrategy = require('passport-spotify').Strategy;
 const spotifyConfig = require('./configs/spotifyAPI');
 const User = require('./models/userModel');
+const cookieSession = require('cookie-session')
 
-const indexRouter = require('./routes/index');
+// const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const SearchRouter = require('./routes/Search')
+const SearchRouter = require('./routes/search')
 const loginfailRouter = require('./routes/loginfail');
 
 const app = express();
@@ -37,10 +38,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(passport.initialize()); // getting weird errors on this
+app.use(cookieSession({
+    name: 'spotify-auth-session',
+    keys: ['key1', 'key2']
+}))
+app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/search', SearchRouter);
 app.use('/loginfail', loginfailRouter)
@@ -61,26 +66,63 @@ passport.use(
           callbackURL: 'http://localhost:3000/auth/spotify/callback'
         },
         function(accessToken, refreshToken, expires_in, profile, done) {
-          User.findOne({userID: profile.id})
-              .then(user => console.log(user))
-              .catch(err => {
+            console.log(profile)
+          // User.findOne({userID: profile.id})
+          //     .then(user => console.log(user))
+          //     .catch(err => {
+          //           const userID = profile.id;
+          //           const username = profile.displayName;
+          //           const gifs = [];
+          //           const newUser = new User({
+          //             userID,
+          //             username,
+          //             gifs
+          //           });
+          //           newUser.save()
+          //               .then(user => console.log(user))
+          //           //                      .catch(err => res.status(400).json("Error :" + err));
+          //           return done(null, profile);
+          //         }
+          //     )
+            User.findOne({userID:profile.id}).then(user => {
+                // if user is already in DB
+                if(user){
+                    console.log("Current user: " + user);
+                // if user is not in DB, add to DB
+                }else{
                     const userID = profile.id;
-                    const username = profile.name;
+                    const username = profile.displayName;
                     const gifs = [];
                     const newUser = new User({
-                      userID,
-                      username,
-                      gifs
+                        userID,
+                        username,
+                        gifs
                     });
                     newUser.save()
-                    //                      .catch(err => res.status(400).json("Error :" + err));
-                    return done(null, profile);
-                  }
-              )
-          return done(null, profile);
+                        .then(user => console.log("New user created: " + user));
+                }
+            })
+            return done(null, profile);
         }
     )
 );
+
+app.get("/", function (req, res) {
+    const user = req.user
+    if(user){
+        res.redirect('/search')
+    }
+    res.render("login");
+});
+
+app.get("/account", ensureAuthenticated, function (req, res) {
+    res.render("account", { user: req.user });
+});
+
+app.get("/logout", function (req, res) {
+    req.logout();
+    res.redirect("/");
+});
 
 app.get('/auth', passport.authenticate('spotify'), function(req, res) {
     // The request will be redirected to spotify for authentication, so this
@@ -110,5 +152,12 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect("/");
+};
 
 module.exports = app;
