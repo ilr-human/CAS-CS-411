@@ -67,23 +67,6 @@ passport.use(
         },
         function(accessToken, refreshToken, expires_in, profile, done) {
             console.log(profile)
-          // User.findOne({userID: profile.id})
-          //     .then(user => console.log(user))
-          //     .catch(err => {
-          //           const userID = profile.id;
-          //           const username = profile.displayName;
-          //           const gifs = [];
-          //           const newUser = new User({
-          //             userID,
-          //             username,
-          //             gifs
-          //           });
-          //           newUser.save()
-          //               .then(user => console.log(user))
-          //           //                      .catch(err => res.status(400).json("Error :" + err));
-          //           return done(null, profile);
-          //         }
-          //     )
             User.findOne({userID:profile.id}).then(user => {
                 // if user is already in DB
                 if(user){

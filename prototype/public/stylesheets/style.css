@@ -13,7 +13,47 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+.login-container{
+  position: center;
+  left: 50%;
+}
+#index-h1{
+  color: green; text-align:left; mix-blend-mode:difference; font-weight:bold; font-family: 'Apple SD Gothic Neo'
+}
+#index-h2{
+  color: ivory; text-align:left; mix-blend-mode:difference; font-family: 'Apple SD Gothic Neo'
+}
+#index-body{
+  height: 100%;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url('https://media.giphy.com/media/xTk9ZwzuWiyJ8n5Vzq/giphy.gif');
+  background-position: center;
+  background-size: cover;
+}
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 350px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.95);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
 
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: black;
+  font-weight: normal;
+  text-align: center;
+}
+.login-box button {
+  position: center;
+}
 .full-width {
   width: 100%;
   padding: 15px;
