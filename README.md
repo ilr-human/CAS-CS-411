@@ -1,4 +1,4 @@
-# 411 team 8
+# Giphy-fy your Spotify
 Quan Pham, Chloe Pupaiboon, Benjamin Reichelt, Isabella Rocha, Gabriella Roman, Yutong Shen
 
 # To use app:
