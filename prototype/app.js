@@ -75,14 +75,15 @@ passport.use(
                 }else{
                     const userID = profile.id;
                     const username = profile.displayName;
-                    const gifs = [];
                     const newUser = new User({
-                        userID,
-                        username,
-                        gifs
+                        userID: userID,
+                        username: username,
+                        url: "",
+                        title: "",
                     });
                     newUser.save()
-                        .then(user => console.log("New user created: " + user));
+                        .then(user => console.log("New user created: " + user))
+                        .catch(err => console.log("Error: " + err));
                 }
             })
             return done(null, profile);
